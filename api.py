@@ -28,10 +28,14 @@ class Protected(Resource):
         current_user = get_jwt_identity()
         data = {"message": f"Device used by user {current_user} is RTX 4090"}
         return jsonify(data)
+    
+
+        
 
 api.add_resource(Login, '/login')
 api.add_resource(Protected, '/protected')
-api.add_resource(apiv1.device,'/')
+api.add_resource(apiv1.device,'/device_info')
+
 app.register_blueprint(apiv1.device_info)
 
 if __name__ == '__main__':

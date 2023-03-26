@@ -6,7 +6,7 @@ API_KEY = "my_secret_key"
 device_info = Blueprint("device",__name__)
 
 class device(Resource):
-    @jwt_required
+    @jwt_required()
     def get(self):
         data = {"message": "RTX 4090"}
         return jsonify(data)
